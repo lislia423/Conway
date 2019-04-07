@@ -13,8 +13,7 @@ Lisa Liao
 
 * Generate Random Gameboard (5 points)
 * Start, pause, stop, and clear gameboard (15 points)
-* Accurately plays game (10 points)
-* Accurately renders game graphics (10 points)
+* Accurately plays game -math and display are correct (20 points)
 * Player can change board size (5 points)
 * Game accurately keeps track of generations (5 points)
 
