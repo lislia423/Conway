@@ -7,7 +7,7 @@ Lisa Liao
 ### Frameworks/Languages (20 points) ###
 
 * Learned/Used React(10 points)
-* Learned/Used Backend (10 points)
+* Learned/Used Express (10 points)
 
 ### Functionality (50 points) ###
 
@@ -29,4 +29,6 @@ Lisa Liao
 ## Creative Portion (15 points) ###
 
 * Player can manipulate game speed (5 points)
-* Player can manually create their own gameboard (10 points)
+* Player can manually create their own gameboard by clicking on individual board pieces (10 points)
+
+Checked off by Andrew
