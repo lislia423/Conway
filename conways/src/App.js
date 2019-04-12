@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import Gameboard from './gameboard.js';
+import Game from './gameboard.js';
 
 import './gameboard.css';
 
@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div>
         <h1>heya</h1>
-         <Gameboard />
+         <Game />
       </div>
     );
   }
