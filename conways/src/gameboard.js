@@ -15,10 +15,8 @@ class Gameboard extends React.Component {
   }
 
   createBoard = () => {
-    let width = document.getElementById("user_board_width").value;
-    console.log(width);
-    let height = document.getElementById("user_board_height").value;
-    console.log(height);
+    width = 20;
+    height = 20;
     let gameboard_mf = []
 
     // Outer loop to create parent

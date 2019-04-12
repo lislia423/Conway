@@ -23,9 +23,11 @@
     <button type="submit" id="user_submit_size" onclick="createBoard()">Submit</button>
     </div>
     <script>
-      document.getElementById("user_submit_size").addEventListener({
+      document.getElementById("user_submit_size").addEventListener('click', () => {
         // SOME SORT OF THING TO RECORD GLOBAL VARIABLES HEIGHT AND WIDTH
-      });
+        let boardWidth = document.getElementById("user_board_width").value;
+        let boardHeight = document.getElementById("user_board_height").value;
+      })
     </script>
   </head>
   <body>
