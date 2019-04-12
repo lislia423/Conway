@@ -12,7 +12,7 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
  
     <title>Conway's Game of Life</title>
-    <h1>Hello!!</h1>
+    <h1>Conway's Game of Life</h1>
     <div className = "board-width">
       <label>Width: <input type="text" id="user_board_width" value="20"/></label>
     </div>
@@ -22,6 +22,11 @@
     <div className = "board-size-submit">
     <button type="submit" id="user_submit_size" onclick="createBoard()">Submit</button>
     </div>
+    <script>
+      document.getElementById("user_submit_size").addEventListener({
+        // SOME SORT OF THING TO RECORD GLOBAL VARIABLES HEIGHT AND WIDTH
+      });
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
