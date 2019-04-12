@@ -1,10 +1,16 @@
-.Board {
-    position: relative;
-    margin: 0 auto;
-    background-color: #000;
+button {
+  background-color:white;
+  border: 1px solid black;
+  height: 20px;
+  width: 20px;
+}
 
-    background-image:
-    linear-gradient(#333 1px, transparent 1px),
-    linear-gradient(90deg, #333 1px, transparent 1px);
-  }
-
+#user_submit_size {
+  height: auto;
+  width: auto;
+  background-color: black;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 1.4em;
+}
