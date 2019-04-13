@@ -6,6 +6,9 @@ class Cell extends React.Component {
   // Constructs a cell with a status initiall equal to dead
   constructor(props) {
     super(props);
+    this.state = {
+      living: this.props.status
+    }
   }
   // renders the new cell as a button
   render() {
@@ -115,6 +118,33 @@ class Gameboard extends React.Component {
         }
 
         console.log("Num Neighbors: " + num_neighbors);
+
+        console.log("before checking: " + this.board[row].props.children[col].props.status);
+
+        // Case 1
+        if (cell_status === "alive" && num_neighbors < 2) {
+          this.board[row].props.children[col].props.status = "dead";
+          
+        }
+        else if (cell_status === "alive" && num_neighbors > 3) {
+          this.board[row].props.children[col].props.status = "dead";
+
+        }
+        else if (cell_status === "alive" && num_neighbors <= 3 && num_neighbors >=2) {
+          this.board[row].props.children[col].props.status = "alive";
+
+        }
+        else if (cell_status === "dead" && num_neighbors == 3) {
+          this.board[row].props.children[col].props.status = "alive";
+
+        }
+
+        console.log(this.board[row]);
+        //this.board[row].props.children[col].setState({living: "blue"});
+
+        console.log("after checking: " + this.board[row].props.children[col].props.status);
+        //console.log(this.board[row].props.children[col]);
+
       }
     }
 
