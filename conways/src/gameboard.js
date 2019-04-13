@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import './gameboard.css';
 
 
 class Cell extends React.Component {
   // Constructs a cell with a status initiall equal to dead
   constructor(props) {
     super(props);
-    console.log(this.props.status);
   }
   // renders the new cell as a button
   render() {
@@ -18,7 +18,6 @@ class Cell extends React.Component {
 class Gameboard extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.board = this.createBoard();
   }
   // creates a new cell object with value of i
@@ -29,7 +28,7 @@ class Gameboard extends React.Component {
   if (num > 2) {
     status = "alive";
   }
-  if (status == "dead") {
+  if (status === "dead") {
     color = "#FFFFFF";
   }
    
@@ -58,25 +57,81 @@ class Gameboard extends React.Component {
     return gameboard_mf
   }
 
+  checkNeighbors = () => {
+    let width = 20;
+    let height = 20;
+    // loop through all the cells on the board
+    for (let row = 0; row < height; ++row) {
+      for (let col = 0; col < height; ++col) {
+        let cell_status = this.board[row].props.children[col].props.status;
+
+        let left_bound = col-1;
+        if (col === 0) {
+          left_bound = col;
+        }
+        else {
+          left_bound = col-1;
+        }
+
+        let right_bound = col+1;
+        if (col > width-2) {
+          right_bound = col;
+        }
+        else {
+          right_bound = col+1;
+        }
+
+        let upper_bound = row-1;
+        if (row == 0) {
+          upper_bound = row;
+        }
+        else {
+          upper_bound = row-1;
+        }
+
+        let lower_bound = row+1;
+        if (row > height-2) {
+          lower_bound = row;
+        }
+        else {
+          lower_bound = row+1;
+        }
+
+        let num_neighbors = 0;
+
+        console.log(row +","+col+": ub->" + upper_bound + " lb-> " + lower_bound + " rib-> " + right_bound + " leb-> " + left_bound);
+
+
+        for (let row_2 = upper_bound; row_2 <= lower_bound; ++row_2) {
+          for (let col_2 = left_bound; col_2 <= right_bound; ++col_2 ) {
+            if((row_2 != row) || (col_2 != col)) {
+              let cell_status_2 = this.board[row_2].props.children[col_2].props.status;
+              console.log("*" + row_2 + "," + col_2 + ": " + cell_status_2);
+              if (cell_status_2 === "alive") {
+                num_neighbors+=1;
+              }
+            }
+          }
+        }
+
+        console.log("Num Neighbors: " + num_neighbors);
+      }
+    }
+
+    
+  }
+
   render() {
     return (
       <div>
         {this.board}
+        {this.checkNeighbors()}
       </div>
     );
   }
 }
 
 class Game extends React.Component {
-  checkNeighbors = () => {
-
-    // loop through all the cells on the board
-    for (let row = 0; row < 20; ++row) {
-      for (let col = 0; col < 20; ++col) {
-
-      }
-    }
-  }
   renderGameBoard = () => {
     return <Gameboard />
   }
@@ -92,9 +147,5 @@ class Game extends React.Component {
   }
 }
 
-// ReactDOM.render(
-//   <Game />,
-//   document.getElementById('root')
-// );
 
-export default Gameboard;
+export default Game;
