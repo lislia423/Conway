@@ -1,7 +1,34 @@
 import React, { Component } from 'react';
 import './gameboard.css';
 
+//EXAMPLE FOR USING STATE AND SETSTATE
 
+// class Cell extends React.Component {
+//   // Constructs a cell with a status initiall equal to dead
+//   constructor(props) {
+//     super(props);
+    
+//     this.changeColorOnClick.bind(this);
+//     this.state = {
+//       living: "dead",
+//       bgColor: "#FFFFFF",
+//       cell_name: "deadCell"
+//     }
+//   }
+//   // method for changing cell color and status on click
+//   changeColorOnClick = () =>{
+//     if(this.state.living === "dead"){
+//       this.setState({living: "alive", cell_name: "liveCell"});
+//       console.log("living: "+this.state.living + " cell name: "+this.state.cell_name);
+  
+//     }
+//     else{
+//       this.setState({living: "dead", cell_name: "deadCell"});
+//       console.log("living: "+this.state.living + " cell name: "+this.state.cell_name);
+
+//     }
+    
+//   }
 class Cell extends React.Component {
   // Constructs a cell with a status initiall equal to dead
   constructor(props) {
