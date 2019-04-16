@@ -1,5 +1,38 @@
-.cell {
-  height: 20px;
-  width: 20px;
-  /* border: 1px solid black; */
+body{
+  background-color: beige;
+  text-align: center;
+  align: center;
 }
+div{
+  margin: 0;
+  padding-bottom: 0;
+  border: 0;
+}
+.gameboard{
+  text-align: center;
+}
+table{
+  border: 1px solid lightgrey;
+}
+td{
+  border: 1px solid lightgrey;
+}
+td:hover{
+  background-color: gold;
+}
+.title{
+  text-align: center;
+}
+
+.alive {
+    height: 15px;
+    width: 15px;
+    background-color: orange;
+  }
+.dead{
+  height: 15px;
+  width: 15px;
+  background-color: white;
+}
+
+
