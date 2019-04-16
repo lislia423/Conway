@@ -4,17 +4,17 @@ Lisa Liao
 
 ### Rubric Turned In (5 Points) ###
 
-### Frameworks/Languages (20 points) ###
+### Frameworks/Languages (10 points) ###
 
 * Learned/Used React(10 points)
-* Learned/Used Express (10 points)
 
-### Functionality (50 points) ###
+### Functionality (60 points) ###
 
 * Generate Random Gameboard (5 points)
-* Start, pause, stop, and clear gameboard (15 points)
+* Start, step, stop, and clear gameboard (20 points)
 * Accurately plays game -math and display are correct (20 points)
 * Player can change board size (5 points)
+* Cell sizes change as board size changes (5 points)
 * Game accurately keeps track of generations (5 points)
 
 ### Styling (5 points) ###
