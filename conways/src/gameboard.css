@@ -1,7 +1,7 @@
 body{
   background-color: beige;
   text-align: center;
-  align: center;
+  
 }
 div{
   margin: 0;
@@ -35,4 +35,8 @@ td:hover{
   background-color: white;
 }
 
-
+#cells{
+  height: 15px;
+  width: 15px;
+  background-color: white;
+}
