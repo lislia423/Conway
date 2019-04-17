@@ -273,12 +273,12 @@ class Gameboard extends React.Component{
                 <br></br>
                 <div className="toolbar">
                     <label> Board Width: 
-                        <input type="text" onChange={this.widthChange}></input>
+                        <input type="text" placeholder={this.state.width} onChange={this.widthChange} readOnly={this.state.running}></input>
                     </label>
                     <br></br>
                     <br></br>
                     <label> Board Height: 
-                        <input type="text" onChange={this.heightChange}></input>
+                        <input type="text" placeholder={this.state.height} onChange={this.heightChange} readOnly={this.state.running}></input>
                     </label>
                     <br></br>
                     <br></br>
@@ -289,7 +289,7 @@ class Gameboard extends React.Component{
                     <br></br>
                     <button onClick={this.run}>Run</button>
                     <button onClick={this.stop}>Stop</button>
-                    <button onClick={this.step}>step</button>
+                    <button onClick={this.step}>Step</button>
                     <button onClick={this.randomBoard}>Randomize</button>
                     <button onClick={this.clear}>Clear</button>
                 </div>
