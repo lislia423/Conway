@@ -1,7 +1,10 @@
+
 body{
-  background-color: beige;
+  background-color: black;
   text-align: center;
-  
+  font-family: 'Franklin Gothic Medium';
+  -webkit-font-smoothing : none;
+  -moz-font-smoothing: none;
 }
 div{
   margin: 0;
@@ -12,22 +15,26 @@ div{
   text-align: center;
 }
 table{
-  border: 1px solid lightgrey;
-}
-td{
-  border: 1px solid lightgrey;
+  margin-left:auto; 
+  margin-right:auto;
 }
 td:hover{
-  background-color: gold;
+  background-color: black;
 }
 .title{
   text-align: center;
+  color: white;
 }
-
+.generations{
+  color: white;
+}
+.toolbar{
+  color: white;
+}
 .alive {
     height: 15px;
     width: 15px;
-    background-color: orange;
+    background-color: black;
   }
 .dead{
   height: 15px;
@@ -35,8 +42,18 @@ td:hover{
   background-color: white;
 }
 
-#cells{
-  height: 15px;
-  width: 15px;
-  background-color: white;
+button{
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+  height: 30px;
+  width: 100px;
 }
+button:hover{
+  color:black;
+  background-color: white;
+  height: 30px;
+  width: 100px;
+}
+
+
