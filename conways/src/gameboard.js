@@ -266,6 +266,18 @@ class Gameboard extends React.Component{
   }
 
   penta = () =>{
+    let gameboard_mf = [];
+    let newMap = this.state.cellMap;
+    for(let i = 0; i < this.state.height; ++i){
+        let rowCells = [];
+        for(let j = 0; j < this.state.width; ++j){
+            let c = this.renderDeadCell([i,j]);
+            newMap[[i,j]] = c.props.status;
+            rowCells.push(c);
+        }
+        gameboard_mf.push(<tr className="board-row">{rowCells}</tr>);
+    }
+    this.setState({cellMap: newMap, generation: 0});
       
   }
 
