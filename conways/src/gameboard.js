@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './gameboard.scss';
+import './gameboard.css';
 
 class Cell extends React.Component {
     constructor(props) {
@@ -69,6 +69,11 @@ class Gameboard extends React.Component{
     //returns a dead cell
     renderDeadCell(c){
         return <Cell coord = {c} status = "dead" changeColor={this.changeCellColor} />;
+    }
+
+    //returns a dead cell
+    renderAliveCell(c){
+        return <Cell coord = {c} status = "alive" changeColor={this.changeCellColor} />;
     }
     
     //create a board of cells
@@ -262,27 +267,173 @@ class Gameboard extends React.Component{
   }
 
   gosper = () =>{
-    let leftBlock = this.state.cellMap
+    this.clear();
+    let newMap = this.state.cellMap;
+
+   // let middleRow = this.state.height/2;
+    //let middleWidth = this.state.width/2;
+
+    if (this.state.width >= 36 && this.state.height >= 23) {
+        newMap[[5, 1]] = "alive";
+        newMap[[6, 1]] = "alive";
+        newMap[[5, 2]] = "alive";
+        newMap[[6, 2]] = "alive";
+
+        newMap[[3, 13]] = "alive";
+        newMap[[3, 14]] = "alive";
+        newMap[[4, 12]] = "alive";
+        newMap[[4, 16]] = "alive";
+        newMap[[5, 11]] = "alive";
+        newMap[[5, 17]] = "alive";
+        newMap[[6, 11]] = "alive";
+        newMap[[6, 15]] = "alive";
+        newMap[[6, 17]] = "alive";
+        newMap[[6, 18]] = "alive";
+        newMap[[7, 11]] = "alive";
+        newMap[[7, 17]] = "alive";
+        newMap[[8, 12]] = "alive";
+        newMap[[8, 16]] = "alive";
+        newMap[[9, 13]] = "alive";
+        newMap[[9, 14]] = "alive";
+
+        newMap[[1, 25]] = "alive";
+        newMap[[2, 23]] = "alive";
+        newMap[[2, 25]] = "alive";
+        newMap[[3, 21]] = "alive";
+        newMap[[3, 22]] = "alive";
+        newMap[[4, 21]] = "alive";
+        newMap[[4, 22]] = "alive";
+        newMap[[5, 21]] = "alive";
+        newMap[[5, 22]] = "alive";
+        newMap[[6, 23]] = "alive";
+        newMap[[6, 25]] = "alive";
+        newMap[[7, 25]] = "alive";
+
+        newMap[[3, 35]] = "alive";
+        newMap[[3, 36]] = "alive";
+        newMap[[4, 35]] = "alive";
+        newMap[[4, 36]] = "alive";
+
+    }
+    else {
+        alert("Your height must be greater than 23 and your width must be greater than 36 to run this pattern");
+    }
+
+    this.setState({cellMap: newMap, generation: 0, interval: 100});
+
   }
 
   penta = () =>{
-    let gameboard_mf = [];
+    this.clear();
     let newMap = this.state.cellMap;
-    for(let i = 0; i < this.state.height; ++i){
-        let rowCells = [];
-        for(let j = 0; j < this.state.width; ++j){
-            let c = this.renderDeadCell([i,j]);
-            newMap[[i,j]] = c.props.status;
-            rowCells.push(c);
-        }
-        gameboard_mf.push(<tr className="board-row">{rowCells}</tr>);
+
+    let middleRow = this.state.height/2;
+    let middleWidth = this.state.width/2;
+
+    if (this.state.width >= 10 && this.state.height >=3) {
+        newMap[[middleRow, middleWidth-5]] = "alive";
+        newMap[[middleRow, middleWidth-4]] = "alive";
+        newMap[[middleRow + 1, middleWidth-3]] = "alive";
+        newMap[[middleRow - 1, middleWidth-3]] = "alive";
+        newMap[[middleRow, middleWidth-2]] = "alive";
+        newMap[[middleRow, middleWidth-1]] = "alive";
+        newMap[[middleRow, middleWidth]] = "alive";
+        newMap[[middleRow, middleWidth+1]] = "alive";
+        newMap[[middleRow + 1, middleWidth+2]] = "alive";
+        newMap[[middleRow - 1, middleWidth+2]] = "alive";
+        newMap[[middleRow, middleWidth+3]] = "alive";
+        newMap[[middleRow, middleWidth+4]] = "alive";
     }
-    this.setState({cellMap: newMap, generation: 0});
-      
+    else {
+        alert("The pattern is too big for this board size!");
+    }
+    
+    this.setState({cellMap: newMap, generation: 0, interval: 100});
   }
 
+  // This method makes the board a pulsar shape
   pulsar = () =>{
-      
+    this.clear();
+    let newMap = this.state.cellMap;
+
+    let middleRow = this.state.height/2;
+    let middleWidth = this.state.width/2;
+
+    if (this.state.height >= 16 && this.state.width >= 16) {
+        newMap[[middleRow - 6, middleWidth-2]] = "alive";
+        newMap[[middleRow - 6, middleWidth-3]] = "alive";
+        newMap[[middleRow - 6, middleWidth-4]] = "alive";
+
+        newMap[[middleRow - 6, middleWidth+2]] = "alive";
+        newMap[[middleRow - 6, middleWidth+3]] = "alive";
+        newMap[[middleRow - 6, middleWidth+4]] = "alive";
+
+        newMap[[middleRow - 1, middleWidth-2]] = "alive";
+        newMap[[middleRow - 1, middleWidth-3]] = "alive";
+        newMap[[middleRow - 1, middleWidth-4]] = "alive";
+
+        newMap[[middleRow - 1, middleWidth+2]] = "alive";
+        newMap[[middleRow - 1, middleWidth+3]] = "alive";
+        newMap[[middleRow - 1, middleWidth+4]] = "alive";
+
+        newMap[[middleRow + 6, middleWidth-2]] = "alive";
+        newMap[[middleRow + 6, middleWidth-3]] = "alive";
+        newMap[[middleRow + 6, middleWidth-4]] = "alive";
+
+        newMap[[middleRow + 6, middleWidth+2]] = "alive";
+        newMap[[middleRow + 6, middleWidth+3]] = "alive";
+        newMap[[middleRow + 6, middleWidth+4]] = "alive";
+
+        newMap[[middleRow + 1, middleWidth-2]] = "alive";
+        newMap[[middleRow + 1, middleWidth-3]] = "alive";
+        newMap[[middleRow + 1, middleWidth-4]] = "alive";
+
+        newMap[[middleRow + 1, middleWidth+2]] = "alive";
+        newMap[[middleRow + 1, middleWidth+3]] = "alive";
+        newMap[[middleRow + 1, middleWidth+4]] = "alive";
+
+
+        /// Columns
+        newMap[[middleRow + 2, middleWidth-1]] = "alive";
+        newMap[[middleRow + 3, middleWidth-1]] = "alive";
+        newMap[[middleRow + 4, middleWidth-1]] = "alive";
+
+        newMap[[middleRow + 2, middleWidth+1]] = "alive";
+        newMap[[middleRow + 3, middleWidth+1]] = "alive";
+        newMap[[middleRow + 4, middleWidth+1]] = "alive";
+
+        newMap[[middleRow - 2, middleWidth-1]] = "alive";
+        newMap[[middleRow - 3, middleWidth-1]] = "alive";
+        newMap[[middleRow - 4, middleWidth-1]] = "alive";
+
+        newMap[[middleRow - 2, middleWidth+1]] = "alive";
+        newMap[[middleRow - 3, middleWidth+1]] = "alive";
+        newMap[[middleRow - 4, middleWidth+1]] = "alive";
+
+        //
+        newMap[[middleRow + 2, middleWidth-6]] = "alive";
+        newMap[[middleRow + 3, middleWidth-6]] = "alive";
+        newMap[[middleRow + 4, middleWidth-6]] = "alive";
+
+        newMap[[middleRow + 2, middleWidth+6]] = "alive";
+        newMap[[middleRow + 3, middleWidth+6]] = "alive";
+        newMap[[middleRow + 4, middleWidth+6]] = "alive";
+
+        newMap[[middleRow - 2, middleWidth-6]] = "alive";
+        newMap[[middleRow - 3, middleWidth-6]] = "alive";
+        newMap[[middleRow - 4, middleWidth-6]] = "alive";
+
+        newMap[[middleRow - 2, middleWidth+6]] = "alive";
+        newMap[[middleRow - 3, middleWidth+6]] = "alive";
+        newMap[[middleRow - 4, middleWidth+6]] = "alive";
+
+    }
+    else {
+        alert("Your board size is not big enough for this pattern")
+    }
+
+    this.setState({cellMap: newMap, generation: 0, interval: 100});
+
   }
 
  
@@ -327,12 +478,9 @@ class Gameboard extends React.Component{
                     </label>
                     <br></br>
                     <br></br>
-                    <select>
-                        <option>--Select--</option>
-                        <option onClick={this.gosper}>Gosper Glider Gun</option>
-                        <option onClick={this.penta}>Pentadecathlon</option>
-                        <option onClick={this.pulsar}>Pulsar</option>
-                    </select>
+                    <button onClick={this.gosper}>Gosper Glider Gun</button>
+                    <button onClick={this.penta}>Pentadecathlon</button>
+                    <button onClick={this.pulsar}>Pulsar</button>
                     <br></br>
                     <br></br>
                     <button onClick={this.run}>Run</button>

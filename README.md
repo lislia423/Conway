@@ -28,8 +28,7 @@ Lisa Liao
 
 ## Creative Portion (15 points) ###
 
-* Player can manipulate game speed (5 points) -- Did we do this???
-    - can also do pre-determined gameboards that have patterns
+* Player can manipulate game speed (5 points) 
 * Player can manually create their own gameboard by clicking on individual board pieces (10 points)
 
 Checked off by Andrew
