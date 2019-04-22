@@ -32,7 +32,9 @@ class Gameboard extends React.Component{
             interval: 100,
             cellMap: new Map(),
             generation: 0,
-            running: false
+            running: false,
+            //percentCellWidth: 2,
+            //percentCellHeight: 2
         }
  
     }
@@ -451,7 +453,7 @@ class Gameboard extends React.Component{
                 <h1>Conway's Game of Life</h1>
                 </div>
                 <div className="game">
-                <table class="board">
+                <table className="board">
                     <tbody>
                     {this.createBoard()}
                     </tbody>
@@ -466,13 +468,9 @@ class Gameboard extends React.Component{
                     <label> Board Width: 
                         <input type="text" onChange={this.widthChange} readOnly={this.state.running}></input>
                     </label>
-                    <br></br>
-                    <br></br>
                     <label> Board Height: 
                         <input type="text" onChange={this.heightChange} readOnly={this.state.running}></input>
                     </label>
-                    <br></br>
-                    <br></br>
                     <label> Intervals: 
                         <input type="text" onChange={this.intervalChange}></input>
                     </label>

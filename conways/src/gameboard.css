@@ -48,13 +48,13 @@ button{
   background-color: black;
   border: 1px solid white;
   height: 30px;
-  width: 100px;
+  width: 150px;
 }
 button:hover{
   color:black;
   background-color: white;
   height: 30px;
-  width: 100px;
+  width: 150px;
 }
 
 
