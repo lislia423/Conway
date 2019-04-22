@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+$primary: black;
+$dead: white;
+$pop: gold;
+$mainFont: 'Press Start 2P', cursive;
+$btnBorder: 1px solid white;
+$tbBorder: 2px solid white;
+$hoverTbBorder: 2px solid gold;
+
+
+@font-face{
+  font-family: $mainFont;
+  src: url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+}
+
+
+@mixin theme($bg, $hoverBG, $font, $fontColor, $hoverFontColor, $liveCell, $deadCell, $buttonBorder, $tableBorder, $hoverTableBorder, $accent){
+  .container{
+    background-color: $bg;
+    text-align: center;
+    font-family: $font;
+  }
+  .gameboard{
+    text-align: center;
+  }
+  .title{
+    text-align: center;
+    color: $fontColor;
+  }
+  table{
+    margin-left:auto; 
+    margin-right:auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    border: $tableBorder;
+    &:hover{
+      border: $hoverTableBorder;
+    }
+  }
+  .generations{
+    color: $fontColor;
+  }
+  .toolbar{
+    color: $fontColor;
+  }
+  .alive{
+    background-color:$liveCell;
+    height: 15px;
+    width: 15px;
+      &:hover{
+        background-color: $accent;
+      } 
+  }
+  .dead{
+    background-color:$deadCell;
+    height: 15px;
+    width: 15px;
+      &:hover{
+        background-color: $accent;
+      } 
+  }
+  button{
+    background-color: $bg;
+    color: $fontColor;
+    height: 30px;
+    width: 350px;
+    font-family: $font;
+    border: $buttonBorder;
+    &:hover{
+      color: $hoverFontColor;
+      background-color: $hoverBG;
+      height: 30px;
+      width: 350px;
+    }
+  }
+}
+
+
+body{
+  background-color: $primary;
+  @include theme($primary, $dead, $mainFont, $dead, $primary, $primary, $dead, $btnBorder, $tbBorder, $hoverTbBorder, $pop);
+}
+
+
+
+
+
+

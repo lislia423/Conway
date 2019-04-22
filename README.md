@@ -14,12 +14,12 @@ Lisa Liao
 * Start, step, stop, and clear gameboard (20 points)
 * Accurately plays game -> math and display are correct (20 points)
 * Player can change board size (5 points)
-* Cell sizes change as board size changes (5 points)
+* Player can choose from 3 preset patterns (5 points)
 * Game accurately keeps track of generations (5 points)
 
 ### Styling (5 points) ###
 
-* learned/implemented SASS and animations (5 points)
+* learned/implemented SASS (5 points)
 
 ### Best Practices (5 points) ###
 
@@ -32,3 +32,4 @@ Lisa Liao
 * Player can manually create their own gameboard by clicking on individual board pieces (10 points)
 
 Checked off by Andrew
+Revisions checked out by Harrison

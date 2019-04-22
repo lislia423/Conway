@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
-import './gameboard.css';
+import './App.scss';
+import './gameboard.scss';
 import Gameboard from './gameboard.js';
 
 

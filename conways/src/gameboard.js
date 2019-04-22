@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './gameboard.css';
+import './gameboard.scss';
 
 class Cell extends React.Component {
     constructor(props) {
@@ -448,7 +448,7 @@ class Gameboard extends React.Component{
 
     render() {
         return(
-            <div>
+            <div className="container">
                 <div className="title">
                 <h1>Conway's Game of Life</h1>
                 </div>
