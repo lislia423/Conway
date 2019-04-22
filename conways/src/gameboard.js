@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import './gameboard.css';
-
+import './gameboard.scss';
 
 class Cell extends React.Component {
     constructor(props) {
@@ -10,6 +9,7 @@ class Cell extends React.Component {
             status: "dead"
         }
     }
+    //cited from https://codepen.io/hadaclay/pen/YZKBpY
     changeColorOnClick = () => {
         return(
             this.props.changeColor(this.props.coord)
@@ -21,6 +21,8 @@ class Cell extends React.Component {
         )
     }
 }
+
+
 class Gameboard extends React.Component{
     constructor(props){
         super(props);
@@ -34,6 +36,9 @@ class Gameboard extends React.Component{
         }
  
     }
+
+    //change cell color and state when the cell is clicked on
+    //cited from https://codepen.io/hadaclay/pen/YZKBpY
     changeCellColor = (c) =>{
         let newM = this.state.cellMap;
         let cellClicked = newM[c];
@@ -45,6 +50,8 @@ class Gameboard extends React.Component{
         }
         this.setState({cellMap: newM});
     }
+
+    //returns a cell with random status
     renderCell(c){
         let s = "";
         let random = Math.floor(Math.random()*Math.floor(4));
@@ -58,9 +65,13 @@ class Gameboard extends React.Component{
         return <Cell coord = {c} status = {s} changeColor={this.changeCellColor} />;
 
     }
+
+    //returns a dead cell
     renderDeadCell(c){
         return <Cell coord = {c} status = "dead" changeColor={this.changeCellColor} />;
     }
+    
+    //create a board of cells
     createBoard = () =>{
         let gameboard_emp = [];
         
@@ -74,7 +85,8 @@ class Gameboard extends React.Component{
         
         return gameboard_emp;
       }
-
+    
+    //generate random board
     randomBoard = () =>{
         let gameboard_mf = [];
         let newMap = this.state.cellMap;
@@ -97,12 +109,13 @@ class Gameboard extends React.Component{
         let row = c[0];
         let col = c[1];
 
-        let left_bound = col -1;
+        //set boundaries for checking neighbors
+        let left_bound = col - 1;
         if (col === 0) {
             left_bound = col;
         }
 
-        let right_bound = col+1;
+        let right_bound = col + 1;
         if (col > this.state.width - 2) {
             right_bound = col;
         }
@@ -112,7 +125,7 @@ class Gameboard extends React.Component{
             upper_bound = row;
         }
 
-        let lower_bound = row+1;
+        let lower_bound = row + 1;
         if (row > this.state.height - 2) {
             lower_bound = row;
         }
@@ -133,15 +146,17 @@ class Gameboard extends React.Component{
 
     }
 
+    //main game logic
     gameLogic = () =>{
+
+        //making a deep copy of this.state.cellMap
         let temp = new Map();
         for (let i = 0; i < this.state.height; ++i) {
             for (let j = 0; j < this.state.width; ++j) {
                 temp[[i,j]] = this.state.cellMap[[i,j]];
             }
         }
-
-        
+       
         for(let i = 0; i < this.state.height; i++){
             for(let j = 0; j < this.state.width; j++){
                 let numLiveNeighbors = this.checkNeighbors([i,j]);
@@ -166,8 +181,6 @@ class Gameboard extends React.Component{
         this.setState({cellMap: temp, generation: updateGeneration}); 
     }
 
-    
-
   //update board width
   widthChange = (e) =>{  
     if(this.state.running){
@@ -186,7 +199,6 @@ class Gameboard extends React.Component{
         alert("Please stop the game before changing board size. (Max board size is 50x50)");
     }
     else{
-        // this.clear();
         this.setState({height: e.target.value});
         this.createBoard();
     }
@@ -210,6 +222,7 @@ class Gameboard extends React.Component{
     }
   }
 
+  //step through game
   step = () =>{
     if(this.state.running){
       alert("Please stop the game before stepping.");
@@ -218,6 +231,7 @@ class Gameboard extends React.Component{
       this.gameLogic();
     }
   }
+
   //stop game
   stop = () => {
     if(this.state.running){
@@ -227,6 +241,8 @@ class Gameboard extends React.Component{
       this.setState({interval: 100});
     }
   }
+
+  //clear gameboard and generations
   clear = () =>{
     let newCellMap = this.state.cellMap;
     let gameboard_m = []
@@ -245,6 +261,18 @@ class Gameboard extends React.Component{
  
   }
 
+  gosper = () =>{
+    let leftBlock = this.state.cellMap
+  }
+
+  penta = () =>{
+      
+  }
+
+  pulsar = () =>{
+      
+  }
+
  
   //initial rendering data fetch
   componentWillMount = () => {
@@ -256,29 +284,29 @@ class Gameboard extends React.Component{
     render() {
         return(
             <div>
-                <div className="title">Game of Life</div>
+                <div className="title">
+                <h1>Conway's Game of Life</h1>
+                </div>
                 <div className="game">
-                <table>
+                <table class="board">
                     <tbody>
                     {this.createBoard()}
                     </tbody>
                 </table>
                 </div>
                 <br></br>
-                <br></br>
                 <div className="generations">
                     <h3>Generation: {this.state.generation}</h3>
                 </div>
                 <br></br>
-                <br></br>
                 <div className="toolbar">
                     <label> Board Width: 
-                        <input type="text" placeholder={this.state.width} onChange={this.widthChange} readOnly={this.state.running}></input>
+                        <input type="text" onChange={this.widthChange} readOnly={this.state.running}></input>
                     </label>
                     <br></br>
                     <br></br>
                     <label> Board Height: 
-                        <input type="text" placeholder={this.state.height} onChange={this.heightChange} readOnly={this.state.running}></input>
+                        <input type="text" onChange={this.heightChange} readOnly={this.state.running}></input>
                     </label>
                     <br></br>
                     <br></br>
@@ -287,15 +315,28 @@ class Gameboard extends React.Component{
                     </label>
                     <br></br>
                     <br></br>
+                    <select>
+                        <option>--Select--</option>
+                        <option onClick={this.gosper}>Gosper Glider Gun</option>
+                        <option onClick={this.penta}>Pentadecathlon</option>
+                        <option onClick={this.pulsar}>Pulsar</option>
+                    </select>
+                    <br></br>
+                    <br></br>
                     <button onClick={this.run}>Run</button>
                     <button onClick={this.stop}>Stop</button>
                     <button onClick={this.step}>Step</button>
                     <button onClick={this.randomBoard}>Randomize</button>
                     <button onClick={this.clear}>Clear</button>
+                    <br></br>
+                    <br></br>
+                    <br></br>
                 </div>
             </div>
         )
     }
 }
+
+
 
 export default Gameboard;
