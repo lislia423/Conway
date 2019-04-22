@@ -22,7 +22,7 @@ class Cell extends React.Component {
     }
 }
 
-
+//Gameboard class
 class Gameboard extends React.Component{
     constructor(props){
         super(props);
@@ -32,9 +32,7 @@ class Gameboard extends React.Component{
             interval: 100,
             cellMap: new Map(),
             generation: 0,
-            running: false,
-            //percentCellWidth: 2,
-            //percentCellHeight: 2
+            running: false
         }
  
     }
@@ -110,6 +108,7 @@ class Gameboard extends React.Component{
        
     }
 
+    //checks and returns number of neighbors of a cell
     checkNeighbors = (c) =>{
         
         let tempMap = this.state.cellMap;
@@ -194,7 +193,6 @@ class Gameboard extends React.Component{
         alert("Please stop the game before changing board size. (Max board size is 50x50)");
     }
     else{
-        // this.clear();
         this.setState({width: e.target.value});
         this.createBoard();
     }
@@ -268,12 +266,10 @@ class Gameboard extends React.Component{
  
   }
 
+  //generates gosper glider gun pattern
   gosper = () =>{
     this.clear();
     let newMap = this.state.cellMap;
-
-   // let middleRow = this.state.height/2;
-    //let middleWidth = this.state.width/2;
 
     if (this.state.width >= 36 && this.state.height >= 23) {
         newMap[[5, 1]] = "alive";
@@ -325,6 +321,7 @@ class Gameboard extends React.Component{
 
   }
 
+  //generates pentadecathlon pattern
   penta = () =>{
     this.clear();
     let newMap = this.state.cellMap;
@@ -353,7 +350,7 @@ class Gameboard extends React.Component{
     this.setState({cellMap: newMap, generation: 0, interval: 100});
   }
 
-  // This method makes the board a pulsar shape
+  // This method makes the board a pulsar pattern
   pulsar = () =>{
     this.clear();
     let newMap = this.state.cellMap;
@@ -361,6 +358,7 @@ class Gameboard extends React.Component{
     let middleRow = this.state.height/2;
     let middleWidth = this.state.width/2;
 
+    //inputting cell pattern
     if (this.state.height >= 16 && this.state.width >= 16) {
         newMap[[middleRow - 6, middleWidth-2]] = "alive";
         newMap[[middleRow - 6, middleWidth-3]] = "alive";
@@ -412,7 +410,7 @@ class Gameboard extends React.Component{
         newMap[[middleRow - 3, middleWidth+1]] = "alive";
         newMap[[middleRow - 4, middleWidth+1]] = "alive";
 
-        //
+        //rows
         newMap[[middleRow + 2, middleWidth-6]] = "alive";
         newMap[[middleRow + 3, middleWidth-6]] = "alive";
         newMap[[middleRow + 4, middleWidth-6]] = "alive";
