@@ -3,8 +3,8 @@ Emmory Stump
 Lisa Liao
 
 ### Install ###
-* Download zip file
-* Run `npm install` in conways directory
+* Download zip file or clone repository using `git clone https://github.com/lislia423/Conway.git`
+* Run `npm install` in `conways` directory
 * After install is complete, run `npm start` to start the application
 
 ### Usage ###
