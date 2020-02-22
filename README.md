@@ -2,34 +2,41 @@
 Emmory Stump
 Lisa Liao
 
-### Rubric Turned In (5 Points) ###
+### Install ###
+* Download zip file
+* Run `npm install` in conways directory
+* After install is complete, run `npm start` to start the application
 
-### Frameworks/Languages (10 points) ###
+### Usage ###
+* Upon starting the application, there will be a randomly generated board running
+* Adjusted board size using 'Board Width' and 'Board Height', max board size is 100 x 100
+* Adjust speed using 'interval'. Default interval is 100ms/generation
+* 'Stop' pauses the board. Click on any cell on the board to make it "alive", then click 'run' to resume
+* 'Clear' will clear the entire board and generation count
+* 'Step' will allow you to proceed one generation at a time
+* 3 preset patterns are available : Gosper Glider Gun, Pentadecathlon and Pulsar
 
-* Learned/Used React (10 points)
+### Troubleshooting ###
 
-### Functionality (60 points) ###
+* If the board size does not update properly, hit the 'clear' button
 
-* Generate Random Gameboard (5 points)
-* Start, step, stop, and clear gameboard (20 points)
-* Accurately plays game -> math and display are correct (20 points)
-* Player can change board size (5 points)
-* Player can choose from 3 preset patterns (5 points)
-* Game accurately keeps track of generations (5 points)
+## General Information ##
 
-### Styling (5 points) ###
+### Frameworks/Languages ###
 
-* learned/implemented SASS (5 points)
+* Learned/Used React
 
-### Best Practices (5 points) ###
+### Styling ###
 
-* Passes W3C HTML Validator (2 points)
-* Code is Readable and Well-Formatted and Well-Commented (3 points)
+* learned/implemented SASS
 
-## Creative Portion (15 points) ###
+### Functionality ###
 
-* Player can manipulate game speed (5 points) 
-* Player can manually create their own gameboard by clicking on individual board pieces (10 points)
-
-Checked off by Andrew
-Revisions checked out by Harrison
+* Generate Random Gameboard
+* Start, step, stop, and clear gameboard
+* Accurately plays game -> math and display are correct
+* Player can change board size 
+* Player can choose from 3 preset patterns
+* Game accurately keeps track of generations
+* Player can manipulate game speed 
+* Player can manually create their own gameboard by clicking on individual board pieces 
